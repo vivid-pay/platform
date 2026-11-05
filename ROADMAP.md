@@ -1,20 +1,21 @@
 # Vivid Pay: roadmap
 
-Jira (project `VPAY`, https://sithumkaushitha.atlassian.net) is the source of truth for **status**.
-This file is the source of truth for **intent and order**. Last reviewed: 2026-11-05.
+Jira (project `VPAY`, https://sithumkaushitha.atlassian.net) is the only source of truth for **status**:
+what is done, in progress or blocked is read there, never from this file.
+This file holds **intent and order** only. Update it when the plan changes, not when work finishes.
 
 ## Phases and Jira epics
 
-| # | Phase | Jira epic | Outcome | Status (2026-11-05) |
-|---|---|---|---|---|
-| 0 | Project foundation | VPAY-4 | Repos, CI, conventions, ADRs, `/ticket` automation, product-owner agent | Nearly done; open: VPAY-22 (SonarQube Cloud), VPAY-23 (this repo) |
-| 1 | Wallet service: accounts | VPAY-5 | Create wallet, read balance, list wallets, freeze/unfreeze; first migration | VPAY-16 done; VPAY-17 to 21 to do |
-| 2 | First deploy ("walking skeleton") | VPAY-8 (first slice) | Docker image, Terraform for a minimal AWS dev environment, CD from `develop` | Planned after phase 1 |
-| 3 | Wallet service: ledger and transfers | VPAY-6 | Double-entry ledger, top-up, transfers, idempotency, history, reconciliation | Stories written when phase 1 is nearly done |
-| 4 | Security | VPAY-7 | Keycloak, JWT, RBAC, threat model, rate limiting, audit log, scanning, secrets | Written when next up |
-| 5 | Other services | VPAY-8 / new epics | `funding-service` (sync calls, sagas), `notification-service` (events) | Added when a real need exists |
-| 6 | Observability and hardening | VPAY-9 | Structured logs, metrics, tracing, SLOs, alerts, load and chaos tests | Written when next up |
-| 7 | Full delivery pipeline | VPAY-8 | Promotion `release/x.y.z` to staging and production with approval, image scanning and signing, maybe Kubernetes | Later |
+| # | Phase | Jira epic | Outcome |
+|---|---|---|---|
+| 0 | Project foundation | VPAY-4 | Repos, CI, conventions, ADRs, `/ticket` automation, product-owner agent |
+| 1 | Wallet service: accounts | VPAY-5 | Create wallet, read balance, list wallets, freeze/unfreeze; first migration |
+| 2 | First deploy ("walking skeleton") | VPAY-8 (first slice) | Docker image, Terraform for a minimal AWS dev environment, CD from `develop` |
+| 3 | Wallet service: ledger and transfers | VPAY-6 | Double-entry ledger, top-up, transfers, idempotency, history, reconciliation |
+| 4 | Security | VPAY-7 | Keycloak, JWT, RBAC, threat model, rate limiting, audit log, scanning, secrets |
+| 5 | Other services | VPAY-8 / new epics | `funding-service` (sync calls, sagas), `notification-service` (events) |
+| 6 | Observability and hardening | VPAY-9 | Structured logs, metrics, tracing, SLOs, alerts, load and chaos tests |
+| 7 | Full delivery pipeline | VPAY-8 | Promotion `release/x.y.z` to staging and production with approval, image scanning and signing, maybe Kubernetes |
 
 Order rationale: get a real slice working, deploy it early so infrastructure problems appear while
 the app is small, then build the money logic on a live environment.
