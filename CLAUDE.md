@@ -5,16 +5,17 @@ conversation history is not reliable memory.
 
 ## Orient yourself (every session)
 1. Read `VISION.md` (why), `ROADMAP.md` (order and phases) and `docs/story-template.md`.
-2. Read the ADRs in `wallet-service/docs/adr/` (sibling checkout `../wallet-service`, or
-   `gh api repos/vivid-pay/wallet-service/contents/docs/adr`) and that repo's `CLAUDE.md` for rules.
+2. Read the ADR index `docs/adr/README.md` here. System-wide ADRs live in `docs/adr/`; service-specific ones in
+   that service's `docs/adr/` (sibling checkout `../wallet-service`, or
+   `gh api repos/vivid-pay/wallet-service/contents/docs/adr`). Also read that repo's `CLAUDE.md` for rules.
 3. Look at Jira for the current state: `project = VPAY`, grouped by epic and status.
 4. Only then act.
 
 ## The system
 | Repo | Role | Folder |
 |---|---|---|
-| `vivid-pay/platform` | Vision, roadmap, the product-owner agent (this repo) | `~/Projects/platform` |
-| `vivid-pay/wallet-service` | Core service: accounts, ledger, transfers; holds the ADRs and the `/ticket` command | `~/Projects/wallet-service` |
+| `vivid-pay/platform` | Vision, roadmap, system-wide ADRs and requirements, the product-owner agent (this repo) | `~/Projects/platform` |
+| `vivid-pay/wallet-service` | Core service: accounts, ledger, transfers; holds its own service-level ADRs and the `/ticket` command | `~/Projects/wallet-service` |
 | `vivid-pay/base-components` | Local infrastructure (docker compose) | `~/Projects/base-components` |
 | `funding-service`, `notification-service` | Planned, created when needed (ADR-0001) | n/a |
 

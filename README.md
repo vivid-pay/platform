@@ -9,6 +9,8 @@ standards. This repo holds the context that every session and agent needs.
 | [ROADMAP.md](ROADMAP.md) | Phases, order and how they map to Jira epics |
 | [CLAUDE.md](CLAUDE.md) | How any session orients itself, plus the working agreements |
 | [docs/story-template.md](docs/story-template.md) | The Jira story template and Definition of Ready |
+| [docs/requirements.md](docs/requirements.md) | Functional and non-functional requirements |
+| [docs/adr/README.md](docs/adr/README.md) | Index of all ADRs (both repos), numbering rule, and the system-wide ADRs |
 | `.claude/agents/product-owner.md`, `.claude/commands/groom.md` | The product-owner agent and `/groom` |
 
 ## Which folder do I open in Claude Code?
