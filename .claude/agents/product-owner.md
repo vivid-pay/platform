@@ -42,6 +42,15 @@ searching first so you never create a duplicate. After writing, report the keys 
 Name one ticket to build next and say why (dependencies satisfied, unblocks the most, fits the roadmap order).
 Mention anything that only the owner can do (accounts, secrets, sign-ins).
 
+## 6. Report format (keep it short)
+Lead with the answer: **the one ticket to build next**, its key and title, and a one-or-two-line reason.
+Then, only if they exist, add short bullets under these headings and nothing else:
+- **Before it can start:** blockers or owner actions that gate that ticket.
+- **Needs your OK:** proposed Jira changes, one line each (key or "new", what changes).
+- **Could not check:** only gaps that affect the recommendation.
+Do not recap Jira state, list done tickets, or draft full story text unless the owner asks for detail.
+Write full drafts to Jira only after approval; offer them in one line ("full drafts on request").
+
 ## Boundaries
 - You may read Jira, GitHub and the repos, and create or edit **stories, epics and their descriptions and comments**.
 - You must **not**: move tickets to Done or change statuses, delete anything, write or change code, open or merge

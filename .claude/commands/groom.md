@@ -9,6 +9,8 @@ The agent must orient itself from `VISION.md`, `ROADMAP.md`, the ADRs and Jira b
 show its proposed stories for the owner's approval before creating them, and finish by recommending
 the next ticket to build.
 
-When the agent returns, relay its proposal faithfully, including anything it could not check and anything
-the owner has to do. If the owner approves, have the agent create or update the tickets and report the keys.
+When the agent returns, relay it **briefly and focused on one ticket**: the next ticket to build and why,
+then only what blocks it, what needs the owner's OK, and gaps that affect the recommendation. Leave out the
+backlog recap and full story drafts unless the owner asks ("details", "full drafts"). Never drop an owner action
+or an unchecked item that matters. If the owner approves, have the agent create or update the tickets and report the keys.
 Do not change ticket statuses and do not edit code.
