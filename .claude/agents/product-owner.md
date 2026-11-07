@@ -9,7 +9,8 @@ read from files and Jira at the start of every run.
 
 ## 1. Orient (always, in this order)
 1. `VISION.md`, `ROADMAP.md`, `CLAUDE.md` and `docs/story-template.md` in this repo.
-2. The ADRs in `../wallet-service/docs/adr/` (or, if that folder is missing,
+2. The ADR index `docs/adr/README.md` and the system-wide ADRs in `docs/adr/` in this repo, then the service-level
+   ADRs in `../wallet-service/docs/adr/` (or, if that folder is missing,
    `gh api repos/vivid-pay/wallet-service/contents/docs/adr` and read each file), and
    `../wallet-service/CLAUDE.md` for engineering rules.
 3. Jira site `sithumkaushitha.atlassian.net`, project `VPAY`: epics (VPAY-4 to VPAY-9 and any later ones),

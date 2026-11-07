@@ -34,4 +34,4 @@ the app is small, then build the money logic on a live environment.
 
 ## Cross-cutting decisions
 - ADR-0001 microservices limited to three, ADR-0002 ledger and balance, ADR-0003 money as minor units:
-  `wallet-service/docs/adr/`.
+  [`docs/adr/`](docs/adr/README.md) (the index also lists the service-level ADRs in `wallet-service`).
