@@ -1,0 +1,84 @@
+name: Confluence sync
+
+# One-way mirror of the repo docs into Confluence (see docs/confluence-sync.md).
+# Publishing stays OFF until the owner sets the repository variable CONFLUENCE_SYNC_ENABLED to "true".
+# A manual run defaults to a dry run, which renders and validates the pages and publishes nothing.
+on:
+  push:
+    branches: [develop]
+    paths:
+      - VISION.md
+      - ROADMAP.md
+      - docs/**
+      - scripts/**
+  schedule:
+    - cron: "17 3 * * *"   # daily: picks up wallet-service doc changes, which cannot trigger this repo
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Render and validate only; publish nothing"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+# Never two syncs at once; a run in progress finishes rather than being cut off half way.
+concurrency:
+  group: confluence-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Automatic runs need the owner's switch; a manual run is always allowed (it is a dry run unless unticked).
+    if: github.event_name == 'workflow_dispatch' || vars.CONFLUENCE_SYNC_ENABLED == 'true'
+    env:
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+    steps:
+      - name: Publishing is only allowed from develop
+        if: env.DRY_RUN != 'true' && github.ref != 'refs/heads/develop'
+        run: |
+          echo "A real sync may only run from develop (this run is on ${GITHUB_REF})." >&2
+          exit 1
+
+      - uses: actions/checkout@v4
+        with:
+          path: platform
+
+      - uses: actions/checkout@v4
+        with:
+          repository: vivid-pay/wallet-service
+          ref: develop
+          path: wallet-service
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r platform/scripts/requirements.txt
+
+      - name: Test the script
+        working-directory: platform/scripts
+        run: python -m unittest
+
+      - name: Dry run (render and validate, publish nothing)
+        if: env.DRY_RUN == 'true'
+        run: python platform/scripts/confluence_sync.py --platform platform --wallet-service wallet-service --dry-run --out rendered
+
+      - name: Upload the rendered pages for inspection
+        if: env.DRY_RUN == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-pages
+          path: rendered
+
+      - name: Publish to Confluence
+        if: env.DRY_RUN != 'true'
+        env:
+          CONFLUENCE_BASE_URL: ${{ vars.CONFLUENCE_BASE_URL }}
+          CONFLUENCE_EMAIL: ${{ vars.CONFLUENCE_EMAIL }}
+          CONFLUENCE_SPACE_KEY: ${{ vars.CONFLUENCE_SPACE_KEY }}
+          CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
+        run: python platform/scripts/confluence_sync.py --platform platform --wallet-service wallet-service

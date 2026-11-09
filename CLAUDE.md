@@ -42,6 +42,12 @@ In Progress, In Review, Done). Epics: VPAY-4 foundation, 5 accounts, 6 ledger an
 stories against the vision, roadmap and ADRs, and proposes the next ticket. It never moves tickets to
 Done, deletes anything, edits code or merges.
 
+## Docs in Confluence
+The docs are mirrored one-way into Confluence by `scripts/confluence_sync.py` (GitHub Action, off until the owner
+enables it). The repo is the source of truth; never edit the Confluence pages. How to run it and the credentials it
+needs (names only) are in [docs/confluence-sync.md](docs/confluence-sync.md). The agent never handles the API token.
+Publishing is outward-facing: only the owner approves the first run.
+
 ## Keep this repo true
 When the plan, a repo, an epic or a convention changes, update the relevant file here in the same
 piece of work. Stale context is worse than none.

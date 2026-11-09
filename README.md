@@ -11,6 +11,8 @@ standards. This repo holds the context that every session and agent needs.
 | [docs/story-template.md](docs/story-template.md) | The Jira story template and Definition of Ready |
 | [docs/requirements.md](docs/requirements.md) | Functional and non-functional requirements |
 | [docs/adr/README.md](docs/adr/README.md) | Index of all ADRs (both repos), numbering rule, and the system-wide ADRs |
+| [docs/confluence-sync.md](docs/confluence-sync.md) | How the docs are mirrored to Confluence, how to run it and the credentials it needs |
+| `scripts/confluence_sync.py` | The one-way docs mirror (run by `.github/workflows/confluence-sync.yml`) |
 | `.claude/agents/product-owner.md`, `.claude/commands/groom.md` | The product-owner agent and `/groom` |
 
 ## Which folder do I open in Claude Code?
