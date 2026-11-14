@@ -17,6 +17,7 @@ conversation history is not reliable memory.
 | `vivid-pay/platform` | Vision, roadmap, system-wide ADRs and requirements, the product-owner agent (this repo) | `~/Projects/platform` |
 | `vivid-pay/wallet-service` | Core service: accounts, ledger, transfers; holds its own service-level ADRs and the `/ticket` command | `~/Projects/wallet-service` |
 | `vivid-pay/base-components` | Local infrastructure (docker compose) | `~/Projects/base-components` |
+| `vivid-pay/infrastructure` | AWS dev environment: Terraform and the manual apply/destroy workflows (ADR-0008, private repo) | `~/Projects/infrastructure` |
 | `funding-service`, `notification-service` | Planned, created when needed (ADR-0001) | n/a |
 
 Jira: https://sithumkaushitha.atlassian.net, project `VPAY` (team-managed Kanban; statuses To Do,
@@ -36,6 +37,8 @@ In Progress, In Review, Done). Epics: VPAY-4 foundation, 5 accounts, 6 ledger an
 - **Planning, backlog, "what next", discussions:** `~/Projects/platform`.
 - **Building a ticket in a service:** that service's folder, e.g. `~/Projects/wallet-service`, then
   `/ticket VPAY-<n>`.
+- **AWS infrastructure tickets:** `~/Projects/infrastructure`. AWS access is the owner's SSO profile `vividpay`
+  (`aws sso login --profile vividpay`); the agent never handles credentials.
 
 ## The product-owner agent
 `/groom` runs the `product-owner` agent (`.claude/agents/product-owner.md`). It writes and refines Jira
