@@ -17,3 +17,5 @@ Numbers are never reused or renumbered, because code, Jira tickets and docs cite
 | [0004](0004-api-error-format.md) | API errors as RFC 9457 problem details | accepted | platform |
 | [0005](https://github.com/vivid-pay/wallet-service/blob/develop/docs/adr/0005-sonarqube-quality-gate.md) | SonarQube Cloud quality gate on new code | accepted | wallet-service |
 | [0006](https://github.com/vivid-pay/wallet-service/blob/develop/docs/adr/0006-temporary-owner-identity-header.md) | Temporary caller identity from the X-User-Id header | accepted | wallet-service |
+| [0007](https://github.com/vivid-pay/wallet-service/blob/develop/docs/adr/0007-private-dev-environment-before-security.md) | Keep the dev environment private until the Security epic lands | accepted | wallet-service |
+| [0008](0008-ephemeral-aws-dev-environment.md) | Ephemeral AWS dev environment under a $20 monthly budget | accepted | platform |
