@@ -16,7 +16,7 @@ conversation history is not reliable memory.
 |---|---|---|
 | `vivid-pay/platform` | Vision, roadmap, system-wide ADRs and requirements, the product-owner agent (this repo) | `~/Projects/platform` |
 | `vivid-pay/wallet-service` | Core service: accounts, ledger, transfers; holds its own service-level ADRs and the `/ticket` command | `~/Projects/wallet-service` |
-| `vivid-pay/base-components` | Local infrastructure (docker compose) | `~/Projects/base-components` |
+| `vivid-pay/third-party-components` | Local infrastructure (docker compose) | `~/Projects/third-party-components` |
 | `vivid-pay/infrastructure` | AWS dev environment: Terraform and the manual apply/destroy workflows (ADR-0008, private repo) | `~/Projects/infrastructure` |
 | `funding-service`, `notification-service` | Planned, created when needed (ADR-0001) | n/a |
 
